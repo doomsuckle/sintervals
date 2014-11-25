@@ -1,4 +1,8 @@
 sintervals
 ==========
 
-Stats interval calculators. 
+Cache of interval calculators. 
+
+Right now has:
+clopper-pearson
+

@@ -1,4 +1,3 @@
-import unittest
 from clopper_pearson import clopper_pearson
 
 
