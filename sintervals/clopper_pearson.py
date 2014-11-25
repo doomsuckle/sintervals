@@ -7,14 +7,14 @@ def clopper_pearson(x, n, alpha=0.1):
     with tail probability alpha
     for x successes on n trials.
     http://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval
-    
+
     Takes a float for alpha for symmetric tails
     >>> clopper_pearson(8, 10, 1-0.99)
         (0.35179883369516324, 0.98914949062025948)
 
     Takes a tuple or list for asymmetric tails.
     >>> clopper_pearson(8, 10, (0, 0.1))
-        (0.0, 0.94547138000232922)''' 
+        (0.0, 0.94547138000232922)'''
 
     def alpha_typecheck(x):
         return type(x) == type(float()) and x < 1
@@ -41,6 +41,3 @@ if __name__ == '__main__':
 # 99% confidence interval:	0.35180 < p < 0.98915
 # 95% confidence interval:	0.44390 < p < 0.97479
 # 90% confidence interval:	0.49310 < p < 0.96323
-
-
-
