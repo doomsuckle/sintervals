@@ -1,4 +1,4 @@
-__version__ = '0.0.102'
+__version__ = '0.0.200'
 
 from clopper_pearson import clopper_pearson
 
