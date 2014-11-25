@@ -15,6 +15,5 @@ metadata = dict(name='sintervals',
                 download_url='',
                 long_description='',
                 packages=['sintervals'])
-#                py_modules=['sintervals'])
 
 setup(**metadata)
