@@ -1,0 +1,4 @@
+sintervals
+==========
+
+Stats interval calculators. 
