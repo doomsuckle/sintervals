@@ -14,6 +14,6 @@ metadata = dict(name='sintervals',
                 version=sintervals.__version__,
                 download_url='',
                 long_description='',
-                py_modules=['sintervals/clopper_pearson'])
+                py_modules=['sintervals'])
 
 setup(**metadata)
