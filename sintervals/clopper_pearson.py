@@ -17,7 +17,7 @@ def clopper_pearson(x, n, alpha=0.1):
         (0.0, 0.94547138000232922)'''
 
     def alpha_typecheck(x):
-        return type(x) == type(float()) and x < 1
+        return type(x) == type(float()) and 0 < x < 1
 
     if alpha_typecheck(alpha):
         alpha_lo = alpha/2.
