@@ -17,7 +17,7 @@ def clopper_pearson(x, n, alpha=0.1):
         (0.0, 0.94547138000232922)'''
 
     def alpha_typecheck(x):
-        return type(x) == type(float()) and 0 < x < 1
+        return type(x) in (type(float()), type(int())) and 0 <= x <= 1
 
     if alpha_typecheck(alpha):
         alpha_lo = alpha/2.
@@ -25,8 +25,13 @@ def clopper_pearson(x, n, alpha=0.1):
     elif type(alpha) in (type(tuple()), type(list())):
         if len(alpha) == 2:
             alpha_lo, alpha_hi = alpha
+            if not all(map(alpha_typecheck, alpha)):
+                raise ValueError('Value of alpha in tuple is invalid')
+        if sum(alpha) > 1:
+            raise ValueError('Tails cannot exceed unity')
     else:
         raise ValueError('Value of alpha is invalid')
+    
 
     lo = scipy.stats.beta.ppf(alpha_lo, x, n - x + 1)
     hi = scipy.stats.beta.ppf(1 - alpha_hi, x + 1, n - x)
