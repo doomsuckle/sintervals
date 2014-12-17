@@ -1,5 +1,7 @@
 #!/usr/env python
 import scipy.stats
+from numpy import isnan
+
 
 
 def clopper_pearson(x, n, alpha=0.1):
@@ -34,10 +36,13 @@ def clopper_pearson(x, n, alpha=0.1):
     
 
     lo = scipy.stats.beta.ppf(alpha_lo, x, n - x + 1)
+    if isnan(lo): lo = 0
+
     hi = scipy.stats.beta.ppf(1 - alpha_hi, x + 1, n - x)
+    if isnan(hi): hi = 1
     return lo, hi
 
-
+# compare with np.log(0.05)
 if __name__ == '__main__':
 
     print clopper_pearson(8, 10, 1-0.99)
